@@ -8,7 +8,14 @@
 *.exe
 *.out
 *.app
-!*.
+
+# Ignore all files
+*
+
+# But not these files...
+!*.*
+!.gitignore
+
 
 # Ignore debug files
 *.gch
