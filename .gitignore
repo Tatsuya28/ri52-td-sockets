@@ -8,6 +8,7 @@
 *.exe
 *.out
 *.app
+!*.
 
 # Ignore debug files
 *.gch
