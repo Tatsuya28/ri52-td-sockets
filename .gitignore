@@ -1,0 +1,35 @@
+# Ignore object files
+*.o
+
+# Ignorer denpendency files
+*.d
+
+# Ignore executables
+*.exe
+*.out
+*.app
+
+# Ignore debug files
+*.gch
+*.pch
+
+# Ignore build directories
+/build/
+/cmake-build-debug/
+/cmake-build-release/
+
+# Ignore editor configuration files (e.g., Code::Blocks, CLion, etc.)
+*.workspace
+*.cbp
+*.idea/
+*.vscode/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore logs and temporary files
+*.log
+*.tmp
