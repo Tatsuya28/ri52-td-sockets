@@ -16,7 +16,7 @@ void usage(const char *progname) {
 
 int main(int argc, char *argv[]) {
     char buffer[BUFFER_SIZE + 1];
-    struct sockaddr_in my_address;
+    struct sockaddr_in srv_address;
     int srv_socket, client_socket;
 
     // Setting up getopt
@@ -51,17 +51,17 @@ int main(int argc, char *argv[]) {
     }
 
     // Configure server address
-    my_address.sin_family = AF_INET;
-    if (inet_pton(AF_INET, host, &my_address.sin_addr) <= 0) {
+    srv_address.sin_family = AF_INET;
+    if (inet_pton(AF_INET, host, &srv_address.sin_addr) <= 0) {
         perror("Invalid address/ Address not supported");
         close(srv_socket);
         exit(EXIT_FAILURE);
     }
-    my_address.sin_port = htons(port);
-    memset(&(my_address.sin_zero), 0, sizeof(my_address.sin_zero));
+    srv_address.sin_port = htons(port);
+    memset(&(srv_address.sin_zero), 0, sizeof(srv_address.sin_zero));
     
     // Bind socket to the specified port
-    if (bind(srv_socket, (struct sockaddr *) &my_address, sizeof(struct sockaddr_in)) < 0) {
+    if (bind(srv_socket, (struct sockaddr *) &srv_address, sizeof(struct sockaddr_in)) < 0) {
         perror("Bind failed");
         close(srv_socket);
         exit(EXIT_FAILURE);

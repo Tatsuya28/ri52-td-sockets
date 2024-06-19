@@ -15,8 +15,8 @@ void usage(const char *progname) {
 }
 
 int main(int argc, char *argv[]) {
-    char buffer[BUFFER_SIZE+1];
-    struct sockaddr_in remote_address;
+    char buffer[BUFFER_SIZE + 1];
+    struct sockaddr_in srv_address;
     int sock_to_server;
 
     // Setting up getopt
@@ -51,17 +51,17 @@ int main(int argc, char *argv[]) {
     }
 
     // Configure remote address
-    remote_address.sin_family = AF_INET;
-    remote_address.sin_port = htons(port);
-    if (inet_pton(AF_INET, host, &(remote_address.sin_addr)) <= 0) {
+    srv_address.sin_family = AF_INET;
+    srv_address.sin_port = htons(port);
+    if (inet_pton(AF_INET, host, &(srv_address.sin_addr)) <= 0) {
         perror("Invalid address/Address not supported");
         close(sock_to_server);
         exit(EXIT_FAILURE);
     }
-    memset(&(remote_address.sin_zero), 0, sizeof(remote_address.sin_zero));
+    memset(&(srv_address.sin_zero), 0, sizeof(srv_address.sin_zero));
 
     // Connect to server
-    if (connect(sock_to_server, (struct sockaddr *) &remote_address, sizeof(struct sockaddr_in)) < 0) {
+    if (connect(sock_to_server, (struct sockaddr *) &srv_address, sizeof(struct sockaddr_in)) < 0) {
         perror("Connection to the server failed");
         close(sock_to_server);
         exit(EXIT_FAILURE);
@@ -79,6 +79,7 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
         buffer[bytes_read] = '\0';
+        
         size_t bytes_sent = send(sock_to_server, buffer, bytes_read+1, 0);
         if (bytes_sent < 0) {
             perror("Send failed");
