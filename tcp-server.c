@@ -10,12 +10,12 @@
 #define BUFFER_SIZE 500
 
 void usage(const char *progname) {
-    printf("%s -p <port_id> -h <serveur_ip>\n", progname);
+    fprintf(stderr, "Usage: %s -p <port_id> -h <serveur_ip>\n", progname);
     exit(EXIT_FAILURE);
 }
 
 int main(int argc, char *argv[]) {
-    char buffer[BUFFER_SIZE+1];
+    char buffer[BUFFER_SIZE + 1];
     struct sockaddr_in my_address;
     int srv_socket, client_socket;
 
@@ -84,20 +84,20 @@ int main(int argc, char *argv[]) {
             close(srv_socket);
             exit(EXIT_FAILURE);
         }
-        printf("Client connected\n");
+        printf("\nClient connected\n\n");
 
         // Read and print messages from the client
         ssize_t bytes_received;
         while ((bytes_received = recv(client_socket, buffer, BUFFER_SIZE, 0)) > 0) {
             buffer[bytes_received] = '\0';
-            printf("Received: %s\n", buffer);
+            printf("Received: %s", buffer);
         }
         
         if (bytes_received < 0) {
             perror("Receive failed");
         }
 
-        printf("Client disconnected\n");
+        printf("\nClient disconnected\n");
         close(client_socket);
     }
 

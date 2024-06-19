@@ -15,6 +15,7 @@
 # But not these files...
 !*.*
 !.gitignore
+!/examples/
 
 
 # Ignore debug files

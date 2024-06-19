@@ -10,7 +10,7 @@
 #define BUFFER_SIZE 500
 
 void usage(const char *progname) {
-    printf("%s -p <port_id> -h <serveur_ip>\n", progname);
+    fprintf(stderr, "Usage: %s -p <port_id> -h <serveur_ip>\n", progname);
     exit(EXIT_FAILURE);
 }
 
