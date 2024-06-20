@@ -16,6 +16,7 @@
 !*.*
 !.gitignore
 !/examples/
+!/full-duplex/
 
 
 # Ignore debug files
