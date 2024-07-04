@@ -16,7 +16,8 @@
 !*.*
 !.gitignore
 !/examples/
-!/full-duplex/
+!/tcp*/
+!/udp*/
 
 
 # Ignore debug files

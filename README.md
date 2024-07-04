@@ -8,7 +8,7 @@ Les instructions et la base de code éventuelle seront partagées via des dépô
 
 Les vidéos du cours sur les sockets publiées sur Moodle sont également disponibles sur [Youtube](https://www.youtube.com/watch?v=4goPrs4NtOk&list=PLNgzB9uJ0Ss4nsIBJV8j8XJwYzwV43nk2)
 
-## Paramétrage et sécurisation d'un client TCP
+## 1. Paramétrage et sécurisation d'un client TCP
 
 Dans cet exercice, vous vous baserez sur l'exemple de client TCP vu en cours pour le rendre paramétrable :
 
@@ -17,15 +17,15 @@ Dans cet exercice, vous vous baserez sur l'exemple de client TCP vu en cours pou
 
 Vous vérifierez les retours des fonctions utilisées dans le programme pour permettre de quitter proprement en cas de problème (serveur inexistant, etc.)
 
-## Serveur UDP avec trace des réceptions
+## 2. Serveur UDP avec trace des réceptions
 
 Dans cet exercice, vous vous baserez sur le serveur UDP du cours, qu'il s'agira dans un premier temps de rendre plus robuste (vérification des valeurs de retour des fonctions), avant de permettre de récupérer l'adresse et le port source des envois reçus. (il faut passer des paramètres non `NULL` au deux derniers paramètres de recvfrom)
 
-## Serveur TCP full duplex
+## 3. Serveur TCP full duplex
 
 On considérera toujours un serveur TCP à un seul client. Celui ci devra ajouter un texte à celui envoyé par son client et lui répondra par ce texte complété. Là encore, il est nécessaire de mémoriser l'adresse et le port du client connecté.
 
-## Chat avec un serveur TCP multiplexé
+## 4. Chat avec un serveur TCP multiplexé
 
 Cet exercice reposera sur le multiplexage des communications pour permettre le support de plusieurs clients en même temps. L'application cliente fonctionne en deux étapes : tout d'abord le programme demande à l'utilisateur quel sera son pseudo, et se met en attente de l'entrée de l'utilisateur. Une fois le pseudo saisi, le client se connecte au serveur et boucle sur la saisie utilisateur, qui sera concaténée au pseudo de l'utilisateur afin d'être envoyée au serveur. À la réception d'un message, le client l'affiche sur la sortie standard.
 
